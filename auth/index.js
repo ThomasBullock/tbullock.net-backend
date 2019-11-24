@@ -16,7 +16,7 @@ if (config.environment == "development") {
 }
 const bruteforce = new ExpressBrute(store);
 
-auth.post("/login", bruteforce.prevent, authController.login); //
+auth.post("/login", authController.login); //
 auth.post("/register", authController.register);
 
 module.exports = auth;

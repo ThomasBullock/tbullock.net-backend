@@ -44,8 +44,18 @@ api.get("/user", authController.authorized, (req, res) => {
 
 api.get("/graph", graphController.getAll);
 api.get("/graph/:id", graphController.getById);
-api.put("/graph/:id", authController.authorized, graphController.updateOne);
 api.post("/graph", authController.authorized, graphController.create);
+api.put("/graph/:id", authController.authorized, graphController.updateOne);
 api.delete("/graph/:id", authController.authorized, graphController.deleteOne);
+
+api.get("/article", articleController.getAll);
+api.get("/article/:id", articleController.getById);
+api.post("/article", authController.authorized, articleController.create);
+api.put("/article/:id", authController.authorized, articleController.updateOne);
+api.delete(
+  "/article/:id",
+  authController.authorized,
+  articleController.deleteOne
+);
 
 module.exports = api;

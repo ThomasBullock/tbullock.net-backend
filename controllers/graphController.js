@@ -9,7 +9,7 @@ exports.getAll = (req, res) => {
 exports.getById = (req, res) => {
   return db.Graph.findOne({
     where: {
-      username: req.params.id
+      id: req.params.id
     }
   }).then(data => {
     res.json(data);
@@ -24,8 +24,10 @@ exports.create = (req, res) => {
     ...req.body
   }).then(data => {
     console.log(data);
-    res.json(data);
+    res.status(201).json(data);
   });
 };
 
-exports.deleteOne = (req, res) => {};
+exports.deleteOne = (req, res) => {
+  res.status(204);
+};
