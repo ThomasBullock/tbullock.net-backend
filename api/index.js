@@ -44,12 +44,14 @@ api.get("/user", authController.authorized, (req, res) => {
 
 api.get("/graph", graphController.getAll);
 api.get("/graph/:id", graphController.getById);
+api.get("/graph/:slug", graphController.getBySlug);
 api.post("/graph", authController.authorized, graphController.create);
 api.put("/graph/:id", authController.authorized, graphController.updateOne);
 api.delete("/graph/:id", authController.authorized, graphController.deleteOne);
 
 api.get("/article", articleController.getAll);
-api.get("/article/:id", articleController.getById);
+// api.get("/article/:id", articleController.getById);
+api.get("/article/:slug", articleController.getBySlug);
 api.post("/article", authController.authorized, articleController.create);
 api.put("/article/:id", authController.authorized, articleController.updateOne);
 api.delete(

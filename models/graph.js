@@ -8,7 +8,8 @@ module.exports = (sequelize, DataTypes) => {
       data: DataTypes.STRING,
       type: DataTypes.STRING,
       xLabel: DataTypes.STRING,
-      yLabel: DataTypes.STRING
+      yLabel: DataTypes.STRING,
+      slug: DataTypes.STRING
     },
     {}
   );

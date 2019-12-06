@@ -16,6 +16,17 @@ exports.getById = (req, res) => {
   });
 };
 
+exports.getBySlug = (req, res) => {
+  console.log("get article == " + req.params.slug);
+  return db.Graph.findOne({
+    where: {
+      slug: req.params.slug
+    }
+  }).then(data => {
+    res.status(200).json(data);
+  });
+};
+
 exports.updateOne = (req, res) => {};
 
 exports.create = (req, res) => {

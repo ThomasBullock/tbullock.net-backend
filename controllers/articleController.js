@@ -17,6 +17,18 @@ exports.getById = (req, res) => {
   });
 };
 
+exports.getBySlug = (req, res) => {
+  console.log(req.params);
+  console.log("get article slug == " + req.params.slug);
+  return db.Article.findOne({
+    where: {
+      slug: req.params.slug
+    }
+  }).then(data => {
+    res.status(200).json(data);
+  });
+};
+
 exports.create = (req, res) => {
   console.log("!!!!CREATE Article!!!!");
   console.log(req.body);
@@ -30,7 +42,15 @@ exports.create = (req, res) => {
 };
 
 exports.updateOne = (req, res) => {
-  res.status(200);
+  const updatedValues = { ...req.body };
+  console.log("updateOne", updatedValues);
+  return db.Article.update(updatedValues, {
+    where: { id: updatedValues.id }
+  }).then(result => {
+    // here your result is simply an array with number of affected rows
+    console.log(result);
+    return res.status(204).json(result);
+  });
 };
 
 exports.deleteOne = (req, res) => {
