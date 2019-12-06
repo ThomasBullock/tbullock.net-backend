@@ -6,7 +6,8 @@ module.exports = (sequelize, DataTypes) => {
       title: DataTypes.STRING,
       tags: DataTypes.STRING,
       content: DataTypes.STRING,
-      slug: DataTypes.STRING
+      slug: DataTypes.STRING,
+      isLive: DataTypes.INTEGER
     },
     {}
   );
